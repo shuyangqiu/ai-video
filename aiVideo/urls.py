@@ -20,5 +20,5 @@ from aiVideo.llava import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/video', views.FileUploadView.as_view()),
+    path('api/v1/video/', views.FileUploadView.as_view()),
 ]
