@@ -9,7 +9,7 @@ from replicate.exceptions import ReplicateError
 
 class FileUploadView(APIView):
     def get(self, request, format=None):
-        serializer = VideoSerializer(data=request.data)
+        serializer = VideoSerializer(data=request.query_params)
         serializer.is_valid(raise_exception=True)
         video = serializer.data['video']
         prompt = serializer.data['prompt']
