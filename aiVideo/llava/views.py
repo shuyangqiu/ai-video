@@ -1,5 +1,4 @@
 import os
-
 from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 from rest_framework.views import APIView
@@ -9,11 +8,11 @@ from replicate.exceptions import ReplicateError
 
 
 class FileUploadView(APIView):
-    serializer_class = VideoSerializer
-
-    def post(self, request, format=None):
-        video = request.data['video']
-        prompt = request.data['prompt']
+    def get(self, request, format=None):
+        serializer = VideoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        video = serializer.data['video']
+        prompt = serializer.data['prompt']
 
         try:
             output = replicate.run(
