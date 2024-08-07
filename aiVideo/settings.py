@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Load environment variables
 load_dotenv()
 REPLICATE_API_TOKEN = os.getenv('REPLICATE_API_TOKEN')
+REPLICATE_LLAVA_ENDPOINT = os.getenv('REPLICATE_LLAVA_ENDPOINT')
 
 # Application definition
 
